@@ -1,0 +1,14 @@
+# ---------------------------------------------------------------
+# CAPSTONE (FE-06) — environment variables
+# Copy this file to .env.local and fill in real values.
+# Never commit .env.local or real API keys.
+# ---------------------------------------------------------------
+
+# Which provider lib/ai-config.ts should use: "anthropic" or "google"
+AI_PROVIDER=anthropic
+
+# Required if AI_PROVIDER=anthropic (get one at https://console.anthropic.com)
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+
+# Required if AI_PROVIDER=google (get one free at https://aistudio.google.com)
+GOOGLE_GENERATIVE_AI_API_KEY=your-key-here
