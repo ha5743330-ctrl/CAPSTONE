@@ -25,7 +25,7 @@ import { createGoogleGenerativeAI } from "@ai-sdk/google";
  * from this module.
  * ------------------------------------------------------------------
  */
-const provider = process.env.AI_PROVIDER ?? "anthropic";
+const provider = process.env.AI_PROVIDER ?? "google";
 
 const anthropic = createAnthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
