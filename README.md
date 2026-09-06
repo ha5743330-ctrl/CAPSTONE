@@ -243,8 +243,8 @@ state to worry about, since the app is stateless.
 ## Reflection
 
 **What was hardest, and why:** Getting the Lighthouse Performance score
-up was the hardest part. I fixed what I could — lazy-loaded the
-markdown renderer, closed a contrast issue — but the score stayed
+up was the hardest part. I fixed what I could lazy-loaded the
+markdown renderer, closed a contrast issue but the score stayed
 around 76 because most of the remaining slowness comes from the AI SDK
 library itself, not my own code. It took me a while to realize that
 and stop trying to "fix" something that wasn't actually broken on my
