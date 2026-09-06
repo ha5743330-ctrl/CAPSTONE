@@ -242,27 +242,20 @@ state to worry about, since the app is stateless.
 
 ## Reflection
 
-*(Personalize this section in your own words before submitting — this
-is a starting draft based on what we worked through together.)*
-
 **What was hardest, and why:** Getting the Lighthouse Performance score
-above 76 turned out to be the hardest part — not because the app's own
-code was slow, but because a chunk of the blocking time comes from the
-AI SDK's client bundle itself. It was a good lesson in the difference
-between "my code is slow" and "a dependency I need is heavy" — the fix
-isn't always in your own files, and sometimes the right call is to
-document a trade-off rather than rewrite a working, tested feature to
-chase a number.
+up was the hardest part. I fixed what I could — lazy-loaded the
+markdown renderer, closed a contrast issue — but the score stayed
+around 76 because most of the remaining slowness comes from the AI SDK
+library itself, not my own code. It took me a while to realize that
+and stop trying to "fix" something that wasn't actually broken on my
+end.
 
-**What I'd do differently next time:** Run a Lighthouse audit *early*,
-before the app's shape is locked in, rather than as a final step —
-catching the AI SDK bundle-size trade-off at the architecture stage
-would have meant a real choice between the SDK's convenience and a
-lighter hand-rolled transport, instead of finding out after the
-streaming/stop-button behavior was already built and tested against it.
+**What I'd do differently next time:** I'd run a Lighthouse check much
+earlier in the process instead of right before submitting. If I'd known
+about the AI SDK's bundle size from the start, I could have made a more
+informed choice about which libraries to use.
 
-**One thing that surprised me:** How much of "production readiness" is
-about *documentation and honesty* rather than making every number
-perfect — a known limitation that's clearly explained and reasoned
-through counts for more than silently shipping something that looks
-fine on the surface but hides a real trade-off.
+**One thing that surprised me:** How much "production ready" is really
+about documenting trade-offs honestly, not just making every score
+perfect. Explaining *why* something isn't 100% turned out to matter
+more than I expected.
