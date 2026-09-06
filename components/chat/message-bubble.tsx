@@ -1,9 +1,22 @@
 "use client";
 
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import dynamic from "next/dynamic";
 import { balanceMarkdown } from "@/lib/streaming-markdown";
 import type { UIMessage } from "ai";
+
+// react-markdown + remark-gfm are only needed once an assistant
+// message actually needs rendering, not on first paint (the empty
+// state has no markdown to show). Lazy-loading keeps them out of the
+// initial JS bundle, which is what was inflating Total Blocking Time
+// in the Lighthouse Performance audit — see README "Performance &
+// accessibility audit" section for the before/after numbers.
+const ReactMarkdown = dynamic(() => import("react-markdown"), {
+  ssr: false,
+  loading: () => null,
+});
+// remarkGfm is a plugin passed as a prop, not a component, so it's
+// loaded eagerly but is tiny compared to the renderer itself.
+import remarkGfm from "remark-gfm";
 
 type MessageBubbleProps = {
   message: UIMessage;
