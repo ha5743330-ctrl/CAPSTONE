@@ -40,7 +40,7 @@ export function Chat() {
           <p className="text-sm font-medium text-[#2a2620]">
             Chat with our assistant
           </p>
-          <p className="text-xs text-[#8a8272]">
+          <p className="text-xs text-[#6b6355]">
             Tell us what you&apos;re looking for
           </p>
         </div>
@@ -51,7 +51,7 @@ export function Chat() {
         className="relative flex-1 space-y-3 overflow-y-auto px-4 py-4 sm:px-6"
       >
         {messages.length === 0 && (
-          <div className="mx-auto max-w-sm pt-10 text-center text-sm text-[#8a8272]">
+          <div className="mx-auto max-w-sm pt-10 text-center text-sm text-[#6b6355]">
             Say hello to start — the assistant will ask a couple of
             quick questions to see how it can help.
           </div>
