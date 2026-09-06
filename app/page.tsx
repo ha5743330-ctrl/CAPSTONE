@@ -7,5 +7,9 @@ import { Chat } from "@/components/chat/chat";
  * route handler that streams Claude's replies.
  */
 export default function Home() {
-  return <Chat />;
+  return (
+    <main className="flex min-h-full flex-1 flex-col">
+      <Chat />
+    </main>
+  );
 }
